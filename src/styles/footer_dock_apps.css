@@ -1,0 +1,407 @@
+/* .footer_app {
+    width: 50px;
+    height: 50px;
+    transition: all 300ms cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    
+  }
+  
+  @media (max-width: 768px) {
+    .footer_app {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  @media (max-width: 420px) {
+    .footer_app {
+      width:38px;
+      height:38px;
+    }
+  } */
+.footer_app:hover {
+  width: 90px;
+  height: 90px;
+  margin-top: -30px;
+}
+
+.footer_app:hover + .footer_app {
+  width: calc(75px + var(--dock-offset-right, 0px));
+  height: calc(75px + var(--dock-offset-right, 0px));
+  margin-top: calc(-20px + var(--dock-offset-right, 0px) * -1);
+}
+
+.footer_app:hover + .footer_app + .footer_app {
+  width: calc(65px + var(--dock-offset-right, 0px));
+  height: calc(65px + var(--dock-offset-right, 0px));
+  margin-top: calc(-10px + var(--dock-offset-right, 0px) * -1);
+}
+
+.footer_app:has(+ .footer_app:hover) {
+  width: calc(75px + var(--dock-offset-left, 0px));
+  height: calc(75px + var(--dock-offset-left, 0px));
+  margin-top: calc(-20px + var(--dock-offset-left, 0px) * -1);
+}
+
+.footer_app:has(+ .footer_app + .footer_app:hover) {
+  width: calc(65px + var(--dock-offset-left, 0px));
+  height: calc(65px + var(--dock-offset-left, 0px));
+  margin-top: calc(-10px + var(--dock-offset-left, 0px) * -1);
+}
+
+/* Prevent hover effect when moving between icons */
+.footer_app:not(:hover) {
+  /* width: 50px;
+      height: 50px; */
+  /* margin-top: 0; */
+}
+
+/**
+   Styling that has nothing to do with the animation:
+  */
+.dock ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+/*   
+  .footer_app img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  } */
+
+.footer_app:hover .tooltip,
+.footer_app:hover .footer_tool_tip_triangle,
+.footer_app:focus-within .tooltip {
+  opacity: 1;
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: ease-in opacity 100ms;
+  display: block;
+  background: #151207;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  white-space: nowrap;
+}
+
+.footer_app .footer_tool_tip_triangle {
+  position: absolute;
+  opacity: 0;
+  left: 40%;
+  bottom: 101%;
+  transform: rotate(45deg);
+  transition: ease-in opacity 100ms;
+  width: 10px;
+  height: 10px;
+  background: #151207;
+}
+
+/*FOOTER BORDER APP WHICH IS AT BOTTOM OF THE EACH APP INDICATING AS THIS APP IS BEING USED*/
+.footer_app .footer_bottom_border_app {
+  width: 12px;
+  height: 3px;
+  border-radius: 0.75rem;
+  position: absolute;
+  bottom: -3%;
+  left: 40%;
+}
+
+.dock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.2rem;
+}
+
+/* The Dock Block */
+.dock ul {
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  /* padding: 10px 20px; */
+  /* gap: 1rem; */
+}
+
+/* Each App Icon */
+.home_app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #fff; */
+  border-radius: 50%;
+  /* width: 100%; */
+  /* height: 100%; */
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Icon Styling */
+.home_app img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 📌 Responsive Design */
+@media (max-width: 768px) {
+  .dock ul {
+    padding: 0px 2px;
+  }
+
+  .home_app {
+    width: 100%;
+    height: 100%;
+  }
+
+  .home_app img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .tooltip {
+    bottom: 55px;
+    font-size: 10px;
+  }
+
+  .home_tool_tip_triangle {
+    bottom: 50px;
+  }
+}
+
+/* .home-title {
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 56px; 
+  color: #a57f28;
+  background: linear-gradient(90deg, #f5ca40 0%, #fa9600 50%, #fd5f50 100%);
+  line-height: 56px;
+  color: #a57f28;
+  background-image: linear-gradient(
+    to right,
+    #ffa300,
+    #a5a5ab,
+    #eab825,
+    #8337fb
+  ); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300%;
+  background-position: -100%;
+  animation: animatedText 1.5s linear infinite;
+}
+
+@keyframes animatedText {
+  0% {
+    background-position: 200%;
+  }
+
+  100% {
+    background-position: 0;
+  }
+} */
+
+@media (max-width: 523px) {
+  /* .home-title {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 38px;
+  }
+
+  .home-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  .home-title-suits {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 12px;
+  } */
+
+  .title-width {
+    max-width: 400px;
+  }
+}
+
+/* 741px – 1511px */
+@media (min-width: 524px) and (max-width: 745px) {
+  /* .home-title {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 54px;
+  }
+
+  .home-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  .home-title-suits {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 32px;
+  } */
+  .responsive-title-width {
+    max-width: 532px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 639px) {
+  .home-title-suits {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+}
+
+@media (min-width: 640px) and (max-width: 899px) {
+  .home-title-suits {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 750px) {
+
+  .home-title {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 41px;
+  }
+}
+
+@media (min-width: 751px) and (max-width: 899px) {
+
+  .home-title {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 62px;
+  }
+}
+
+@media (min-width: 900px) {
+  .home-title-suits {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+  }
+
+  .home-title {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 62px;
+  }
+}
+
+/* ≥ 1512px */
+@media (min-width: 746px) {
+  /* .home-title {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 78px;
+  } */
+  /* 
+  .home-subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+  } */
+  /* 
+  .home-title-suits {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 54px;
+  } */
+
+  .responsive-title-width {
+    max-width: 722px;
+  }
+}
+
+.home-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.home-title {
+  background: linear-gradient(90deg, #f5ca40 0%, #fa9600 50%, #fd5f50 100%);
+  background-size: 300% 100%; /* Make sure to add 100% height */
+  background-position: 200% 0; /* Start position */
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Important for fallback */
+
+  animation: animatedText 9s linear infinite; /* slower and smooth */
+}
+
+@keyframes animatedText {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.home-subtitle {
+  color: #363532;
+}
+
+.home-title-suits {
+  color: #363532;
+  font-family: "Poppins", sans-serif;
+}
+
+/* background: linear-gradient(to right, #FFA300 42.41%, #A5A5AB 71.78%, #EAB825 20%);
+background-size: 200%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: animate 3.5s linear infinite;
+}
+
+@keyframes  animate {
+0%{
+    background-position: 200%;
+}
+
+100%{
+    background-position: 0;
+}
+} */
+
+
+.content-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #151207;
+  font-family: "Poppins", sans-serif;
+}
+
+.content-text-active {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #A57F28;
+  font-family: "Poppins", sans-serif;
+}

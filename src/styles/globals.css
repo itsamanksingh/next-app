@@ -1,0 +1,119 @@
+@import "tailwindcss";
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+
+/* Set the global font */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  font-family: "poppins", sans-serif;
+}
+
+/* Target the specific nextjs-portal element */
+nextjs-portal,
+div[data-nextjs-portal],
+#nextjs-portal-root {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Target the toast notification */
+.nextjs-toast,
+div[data-nextjs-toast="true"],
+div[class*="nextjs-toast"] {
+  display: none !important;
+}
+
+/* Target the shadow-root if it persists */
+:host(#shadow-root) {
+  display: none !important;
+}
+
+/* As a last resort, you can target the entire structure */
+body > div:not([id])[style*="z-index: 2147483647"] {
+  display: none !important;
+}
+
+.h,
+.p {
+  font-family: "poppins, sans-serif";
+}
+
+@keyframes TransitioningBackground {
+  0% {
+    background-position: 1% 0%;
+  }
+  50% {
+    background-position: 99% 100%;
+  }
+  100% {
+    background-position: 1% 0%;
+  }
+}
+
+.shining-button {
+  position: relative;
+  overflow: hidden;
+  background-image: (linear-gradient(270deg, #8e9ac2, #42579a));
+  background-size: 400% 400%;
+  animation: TransitioningBackground 10s ease infinite;
+  transition: 0.6s;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    width: 60px;
+    height: 100%;
+    top: 0;
+    filter: blur(30px);
+    transform: translateX(-100px) skewX(-15deg);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    width: 30px;
+    height: 100%;
+    top: 0;
+    filter: blur(5px);
+    transform: translateX(-100px) skewX(-15deg);
+  }
+
+  &:hover {
+    background-image: (linear-gradient(to left, #2d8fe5, #d155b8));
+    transform: scale(1.2);
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      transform: translateX(300px) skewX(-15deg);
+      transition: 0.7s;
+    }
+  }
+}
+
+

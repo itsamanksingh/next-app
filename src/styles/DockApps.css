@@ -1,0 +1,39 @@
+
+.tooltip {
+  position: absolute;
+  opacity: 1;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: ease-in opacity 100ms;
+  display: block;
+  background: #151207;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  white-space: nowrap;
+}
+
+/* .footer_tool_tip_triangle {
+  position: absolute;
+  opacity: 0;
+  left: 40%;
+  bottom: 101%;
+  transform: rotate(45deg);
+  transition: ease-in opacity 100ms;
+  width: 10px;
+  height: 10px;
+  background: #151207;
+} */
+
+.footer_tool_tip_triangle {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid black;
+}
